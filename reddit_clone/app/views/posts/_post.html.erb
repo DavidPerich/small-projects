@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="vote-box well text-center">
+    <% if logged_in? %>
+      <%=link_to vote_post_path(post, vote: true), method: "post" do%>
+        <i class="glyphicon glyphicon-arrow-up"></i><br>
+      <% end %>
+    <% end %>
+    <%= post.total_votes %> votes
+    <br>
+    <% if logged_in? %>
+        <%=link_to vote_post_path(post, vote: false), method: "post" do%>
+        <i class="glyphicon glyphicon-arrow-down"></i>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="big-box well">
+    <%= render post.categories%>
+
+  <h4><%= link_to post.title, fix_url(post.url)%></h4>
+  <p><%=post.description%></p>
+  <p>
+    <span class="quiet">Posted by:</span> <%= link_to post.user.name, user_path(post.user) %>
+    <small>at <%=display_time(post.created_at)%></small>
+  </p>
+  <small>
+    <span>
+      <%= link_to("#{post.comments.size} comments", post_path(post))%>
+    </span>
+  </small>
+  </div>
+</div>

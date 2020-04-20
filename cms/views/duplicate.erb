@@ -1,0 +1,13 @@
+<div>
+  <h1>Duplicate a file </h1>
+  <p>The CMS currently supports <%=file_types_to_sentence%> file types</p>
+</div>
+<form action="/duplicate" method= "post">
+  <input type="hidden" name="original_file" id="original_file" value="<%=@file_name%>">
+  <label for="file_name"> Please rename the duplicate file</label>
+  <div>
+    <textarea rows="2" cols= "20" name="file_name" id="file_name"><%=@file_name%></textarea>
+    <button type="submit">Create duplicate</button>
+  </div>
+ 
+</form>

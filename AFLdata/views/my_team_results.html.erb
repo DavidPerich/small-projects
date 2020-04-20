@@ -1,0 +1,6 @@
+<h1><%=search_query[:teams]%> <%=search_query[:years]%> Season Summary</h1>
+
+<div class=season-summary>
+  <p><b> <%=finals_summary(@results, search_query[:teams] )%></b></p>
+  <p><%=win_loss_summary(@results, search_query[:teams] )%></p>
+</div>

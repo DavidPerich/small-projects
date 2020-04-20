@@ -1,0 +1,34 @@
+<% if tickets.empty?%>
+<p>There are no tickets for this project</p>
+<% else %>
+  <table class="tg">
+    <tr>
+      <th class="tg-cly1">Name</th>
+      <th class="tg-cly1">Creator</th>
+      <th class="tg-cly1">Assignee</th>
+
+      <th class="tg-cly1">Status</th>
+      <th class="tg-cly1">Tags</th>
+      <th class="tg-cly1"></th>
+    </tr>
+
+    <% tickets.each do |ticket| %>
+      <tr>
+      <td class="tg-01ax"><%= link_to ticket.name, ticket_path(ticket)%></td>
+      <td class="tg-01ax"><%=ticket.creator.name%></td>
+      <td class="tg-01ax"><%=ticket.assignee ? ticket.assignee.name : "Yet to be assigned"%></td>
+      <td class="tg-01ax"><%=ticket.status%></td>
+      <td class="tg-01ax"><%=ticket_tag_names(ticket) %></td>
+      <td class="tg-01ax">
+      <%=link_to "edit", edit_ticket_path(ticket), class: "btn btn-success"%>
+      <%= link_to 'Delete', url_for(action: :destroy, controller: 'tickets', id: ticket.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-warning" %>
+      </td>
+
+    </tr>
+    <% end %>
+</table>
+<% end %>
+
+<%= link_to "New Ticket", new_ticket_path, class: "btn btn-success"%>
+
+

@@ -1,0 +1,14 @@
+<form action="/users/signin" method= "post" class="inline">
+  <div >
+    <label for="username"> Username:
+      <textarea rows="1" cols= "20" name=username id="username"><%=params[:username]%></textarea>
+    </label>
+  </div>
+
+  <div>
+    <label for="password">Password:
+    <textarea rows="1" cols= "20" name=password id="password"></textarea>
+    </label>
+  </div>
+     <button type="submit">Sign in</button>
+</form>

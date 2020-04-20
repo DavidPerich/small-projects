@@ -1,0 +1,47 @@
+<article class=my-team>
+
+
+
+  <div class="search-form">
+    <form action="/my_team_results" method="get">
+      <input type="hidden" name="sort-by" id="sort-by" value="oldest">
+      <input type="hidden" name="margin" value="0" placeholder="0" >
+
+      <h1>How'd my team go?</h1>
+      <p>Search for the results of a team in a particular year</p>
+
+      <ul>
+        <li id="teams" >
+            <label for="teams">Select Team</label>
+              <div class="row">
+                <select class="select-css" name="teams[]" id="teams-select">
+                  <%team_names_list.each do |team|%>
+                    <option value="<%=team%>"><%=team%></option>
+                  <%end%>
+              </div>
+              </select>
+        </li>
+
+        <li id="years" >
+          <label for="years">Select Year</label>
+          <div class="row">
+            <select  class="select-css" name="years[]" id="years-select" >
+              <%years_list.each do |year|%>
+                <option value="<%=year%>"><%=year%></option>
+              <%end%>
+            </select>
+          </div>
+        </li>
+      </ul>
+        </div>
+
+
+      <div class="row ">
+        <input type="submit" value="Search" class="button">
+        <input type="reset" value="Reset Criteria" class="button"/>
+      </div>
+    </form>
+  </div>
+
+
+</article>

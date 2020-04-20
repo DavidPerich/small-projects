@@ -1,0 +1,7 @@
+---
+admin:
+  :salt: "$2a$10$5phwSNPkyI3cVciVK7s84u"
+  :passwordhash: "$2a$10$5phwSNPkyI3cVciVK7s84uUsgVG5ku9VC32sxhjAiBNp1BVNQ3hha"
+Username1:
+  :salt: "$2a$10$n.mfZ6BrMD1ut3jvnFrf.."
+  :passwordhash: "$2a$10$n.mfZ6BrMD1ut3jvnFrf..AtRhEn4IK0l8XVnC2LftNc8wCOAEkx."

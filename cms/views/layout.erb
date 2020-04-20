@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" href="/stylesheets/cms.css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+  <button onclick="window.location.href = '/'">Home</button>
+  <% if session[:message] %>
+    <p class="message"><%= session.delete(:message) %></p>
+  <% end %>
+    <main>
+      <%==yield %>
+    </main>
+    <div>
+
+    <div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+ruby '2.6.1'
+
+gem 'bcrypt'
+gem 'erubis'
+gem 'minitest'
+gem 'minitest-reporters'
+gem 'rack-test'
+gem 'simplecov'
+gem 'tilt'
+
+gem 'pg'
+gem 'rack'
+gem 'rack-protection'
+gem 'rake'
+gem 'sinatra'
+gem 'sinatra-contrib'
+
+group :production do
+  gem 'puma'
+end

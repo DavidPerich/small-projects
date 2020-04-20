@@ -1,0 +1,29 @@
+<%= render "shared/title", title: "Projects"%>
+
+<% if @projects.empty? %>
+  <p class="empty-list">
+    There are no projects!
+    <%= link_to "Add one now?", new_project_path %>
+  </p>
+<% else %>
+
+  <table class=tg>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th class="tg-cly1">Open Tickets</th>
+        <th class="tg-cly1">Total Tickets</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <%= render "project", project: project%>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+<br>
+
+<%= link_to "New Project", new_project_path, class: "btn btn-success"%>

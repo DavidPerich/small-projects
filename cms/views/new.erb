@@ -1,0 +1,19 @@
+<div>
+  <h1>Add new files </h1>
+  <p>The CMS currently supports <%=file_types_to_sentence%> file types</p>
+</div>
+<form action="/create" method= "post">
+  <label for="file_name"> Create a new document</label>
+  <div>
+    <textarea rows="2" cols= "30" name=file_name id="file_name"><%=@file_name%></textarea>
+    <button type="submit">Create</button>
+  </div>
+</form>
+
+<form action="/upload_image" method= "POST" enctype="multipart/form-data">
+  <label for="file">Please add a URL for your image</label>
+  <div>
+    <input type="file" name=file value="<%=@filename || "Eg: https:www.pictures.com/picture100.jpg"%>">
+    <button type="submit">Upload Image</button>
+  </div>
+</form>

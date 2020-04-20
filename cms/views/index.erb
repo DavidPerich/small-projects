@@ -1,0 +1,66 @@
+<!-- views/index.erb -->
+<h1> A simple CMS </h1>
+<h3> Files: </h3>
+  <%@files.each do |file| %>
+    <div class="index">
+      <h3><%=file[:name]%> <h3> 
+
+      <form class="inline" action="/<%=file[:name]%>" method="get">
+        <button type="submit">View</button>
+      </form>
+      
+      <form class="inline" action="/<%=file[:name]%>/edit" method="get">
+        <button type="submit">Edit</button>
+      </form>
+            
+      <form class="inline" action="/<%=file[:name]%>/rename_duplicate" method="get">
+        <button type="submit">Duplicate</button>
+      </form>
+
+       <form class="inline" action="/<%=file[:name]%>/rename" method="get">
+        <button type="submit">Rename</button>
+      </form>
+   
+      <form class="inline" action="/<%=file[:name]%>/delete" method="post">
+        <button class="delete" type="submit">Delete</button>
+      </form>
+
+    </div>
+   <%end%>
+
+   <h3> Images: </h3>
+  <%@images.each do |file| %>
+    <div class="index">
+      <h3><%=file[:name]%> <h3> 
+
+      <form class="inline" action="/<%=file[:name]%>" method="get">
+        <button type="submit">View</button>
+      </form>
+
+      <form class="inline" action="/<%=file[:name]%>/delete" method="post">
+        <button class="delete" type="submit">Delete</button>
+      </form>
+    </div>
+   <%end%>
+  
+<%if session[:username]%>
+  <form action="/new" method= "get">
+    <button type="submit">New Document or Image </button>
+  </form>
+
+  <form action="/users/signout" method= "post">
+    <p class="user-status">
+      Signed in as <%= session[:username] %>.
+      <button type="submit">Sign Out</button>
+    </p>
+  </form>  
+<%else%>
+   <form class="inline" action="/users/signin" method= "get">
+    <button type="submit">Sign In</button>
+  </form>
+
+  <form class="inline" action="/users/signup" method= "get">
+    <button  type="submit">Sign Up</button>
+  </form>
+
+<%end%>

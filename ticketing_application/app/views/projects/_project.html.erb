@@ -1,0 +1,12 @@
+<tr>
+  <td class="tg-01ax">
+    <strong><%= link_to project.name, project_path(project) %></strong><br>
+    <%= project.description %>
+  </td>
+  <td class="tg-01ax"><%= project.tickets.open.count %></td>
+  <td class="tg-01ax"><%= project.tickets.count %></td>
+  <td class="tg-01ax">
+    <%= link_to "Edit Project", edit_project_path(project), class: "btn btn-success" %>
+    <%= link_to 'Delete', url_for(action: :destroy, controller: 'projects', id: project.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-warning" %>
+  </td>
+</tr>

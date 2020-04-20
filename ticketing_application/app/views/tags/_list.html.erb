@@ -1,0 +1,11 @@
+<tr>
+  <td class="tg-01ax">
+    <%= tag.name %><br>
+  </td>
+  <td class="tg-01ax"><%= link_to tag.tickets.size, tickets_path(tag_id: tag.id)  %></td>
+  <td class="tg-01ax">
+    <%= link_to "Edit tag", edit_tag_path(tag), class: "btn btn-success" %>
+      <%= link_to "Delete", [tag], method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-warning" %>
+
+  </td>
+</tr>

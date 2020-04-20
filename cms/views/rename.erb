@@ -1,0 +1,15 @@
+<div>
+  <h1>Rename a file</h1>
+  <p>The CMS currently supports <%=file_types_to_sentence%> file types</p>
+</div>
+
+<form action="/rename" method= "post">
+  <input type="hidden" name="original_file" id="original_file" value="<%=@file_name%>">
+  <label for="file_name"> Please provide a new name for the file</label>
+  
+  <div>
+    <textarea rows="2" cols= "20" name="new_file_name" id="new_file_name"><%=@file_name%></textarea>
+    <button type="submit">Rename File</button>
+  </div>
+ 
+</form>

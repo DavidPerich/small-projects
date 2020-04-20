@@ -1,0 +1,16 @@
+
+<%= form_with(model: @comment, url: [@ticket, @comment])  do |f| %>
+  <div class="input-group">
+    <%=f.label :body, "Add a comment"%>
+    <%=f.text_area :body%>
+  </div>
+  <div class="input-group form-select">
+    <%= label :ticket_status, "Update Ticket Status" %>
+    <%= select_tag :ticket_status, options_for_select(Ticket::STATUS_OPTIONS.map{|t| [t.titleize, t]}, params[:ticket_status]), id: :ticket_status, include_blank: "Do not change" %>
+
+  </div>
+  <div class="input-group">
+    <%= f.submit class: "btn btn-success"%>
+    <%= link_to "Back", :back, class: "btn" %>
+  </div>
+<% end %>

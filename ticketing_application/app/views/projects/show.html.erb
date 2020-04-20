@@ -1,0 +1,24 @@
+<%= render "shared/title", title: "#{@project.name} Project"%>
+
+<table class=tg>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th class="tg-cly1">Open Tickets</th>
+      <th class="tg-cly1">Total Tickets</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%=render "project",  project: @project %>
+  </tbody>
+</table>
+
+
+<h2>Tickets</h2>
+
+<% render "tickets/filter", tickets: @project.tickets%>
+
+<%= render "tickets/list", tickets: @project.tickets%>
+
+

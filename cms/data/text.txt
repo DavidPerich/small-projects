@@ -1,0 +1,5 @@
+# this is some test txt
+
+## it should be regular text view
+
+- no bullet points

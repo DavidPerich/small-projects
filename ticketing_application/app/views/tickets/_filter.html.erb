@@ -1,0 +1,20 @@
+  <%= form_with(url: tickets_path, local: true, class: "form-inline", method: "get") do |f| %>
+  Show tickets from
+  <div class="input-group">
+    <%=f.select("filter[project_id]", Project.all.collect { |p| [ p.name, p.id ] }, { prompt: 'Select Project'})%>
+  </div>
+  with status
+   <div class="input-group form-select">
+    <%= f.select("filter[status]", Ticket::STATUS_OPTIONS, prompt: "Select status") %>
+  </div>
+  tagged
+  <div class="input-group form-select">
+    <%= f.select("tag_id", Tag.all.collect {|t| [t.name, t.id]}, prompt: "Select Tag") %>
+  </div>
+  <div class="input-group">
+    <%= f.submit "Update", class: "btn btn-success" %>
+    <span class="reset">
+      <%= link_to "Clear Filters", tickets_path %>
+    </p>
+  </div>
+<% end %>

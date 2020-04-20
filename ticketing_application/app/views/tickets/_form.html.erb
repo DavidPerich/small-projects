@@ -1,0 +1,33 @@
+<%= render "shared/errors", obj: @ticket%>
+
+<%= form_with(model: @ticket, local: true) do |f| %>
+  <div class="input-group">
+    <label for="project">Project</label>
+    <%=select("ticket", "project_id", Project.all.collect { |p| [ p.name, p.id ] }, { prompt: true })%>
+  </div>
+
+  <div class="input-group">
+    <%= f.label :name%>
+    <%= f.text_field :name%>
+  </div>
+  <div class="input-group">
+    <%= f.label :body%>
+    <%= f.text_area :body%>
+  </div>
+  <div class="input-group form-select">
+    <%= f.label :status %>
+    <%= f.select(:status, Ticket::STATUS_OPTIONS) %>
+  </div>
+  <div class="input-group form-select">
+    <%= f.label :assignee %>
+    <%=select(:ticket, :assignee_id, User.all.collect { |p| [ p.name, p.id ] }, { prompt: true })%>
+  </div>
+  <div class="input-group form-select">
+    <%= f.label :tag %>
+    <%= collection_select(:ticket, :tag_ids, Tag.all, :id, :name, {}, {multiple: true})%>
+  </div>
+  <div class="input-group">
+    <%= f.submit class: "btn btn-success"%>
+    <%= link_to "Back", :back, class: "btn" %>
+  </div>
+<% end %>

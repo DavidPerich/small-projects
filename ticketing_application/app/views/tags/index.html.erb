@@ -1,0 +1,26 @@
+<%= render "shared/title", title: "Tags"%>
+
+<% if @tags.empty? %>
+  <p class="empty-list">
+    There are no tags!
+    <%= link_to "Add one now?", new_tag_path %>
+  </p>
+<% else %>
+
+<table class=tg>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th class="tg-cly1">Tickets</th>
+      <th></th>
+    </tr>
+  </thead>
+    <tbody>
+    <% @tags.each do |tag| %>
+      <%= render "list", tag: tag%>
+    <% end %>
+</tbody>
+</table>
+<%end %>
+
+<%= link_to "New tag", new_tag_path, class: "btn btn-success"%>

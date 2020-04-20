@@ -1,0 +1,45 @@
+<h1>
+  <%= @ticket.name %>
+</h1>
+
+<p>
+  <%= @ticket.body %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= ticket_tag_names(@ticket) %>
+</p>
+
+<p class="actions">
+  <%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn" %>
+</p>
+
+<table class="tg">
+  <thead>
+    <tr>
+      <th class="tg-cly1" >Status</th>
+      <th class="tg-cly1">Creator</th>
+      <th class="tg-cly1">Assignee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="tg-01ax"><%= @ticket.status.titleize %></td>
+      <td class="tg-01ax"><%=@ticket.creator.name%></td>
+      <td class="tg-01ax"><%=@ticket.assignee ? @ticket.assignee.name : "Yet to be assigned"%></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Comments</h2>
+<% if @ticket.comments.empty?%>
+  <p>There are no comments on this ticket</p>
+<% else %>
+
+  <% @ticket.comments.each do |comment| %>
+    <%= render "comments/comment", comment: comment%>
+  <% end %>
+
+<% end %>
+<%=render "comments/form"%>

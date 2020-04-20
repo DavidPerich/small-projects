@@ -1,0 +1,78 @@
+<article class=big-wins>
+  <header class="">
+</header>
+
+  <div class="search-form">
+    <form action="/big_margins_results" method="get">
+      <h1>Big Wins</h1>
+      <li id="margin" >
+          <p>Wins Greater than</p>
+          <input type="number" name="margin" placeholder="0">
+          <p>points.</p>
+      </li>
+
+      <li id="teams" >
+          <label for="teams">Featuring these teams:</label>
+            <div class="row">
+              <select class="select-css" name="teams[]" id="teams-select" multiple="multiple">
+                <%team_names_list.each do |team|%>
+                  <option value="<%=team%>"><%=team%></option>
+                <%end%>
+              <input type="button" value="All" class="button"  onclick="return selectAll('teams-select', true)">
+              <input type="button" value="None" class="button" onclick="return selectAll('teams-select', false)">
+            </div>
+            </select>
+      </li>
+
+      <li id="years" >
+        <label for="years">In these years:</label>
+        <div class="row">
+          <select  class="select-css" name="years[]" id="years-select" multiple>
+            <%years_list.each do |year|%>
+              <option value="<%=year%>"><%=year%></option>
+            <%end%>
+            <input type="button" value="All" class="button"  onclick="return selectAll('years-select', true)">
+            <input type="button" value="None" class="button" onclick="return selectAll('years-select', false)">
+          </select>
+        </div>
+      </li>
+
+      <li id="venues" >
+        <label for="venues">At these venues:</label>
+        <div class="row">
+          <select class="select-css" name="venues[]" id="venues-select" multiple="multiple">
+
+            <%venues_list.each do |venue|%>
+              <option value="<%=venue%>" multiple><%=venue%></option>
+            <%end%>
+            <input type="button" value="All" class="button"  onclick="return selectAll('venues-select', true)">
+            <input type="button" value="None" class="button" onclick="return selectAll('venues-select', false)">
+          </select>
+        </div>
+      </li>
+
+      <li id="sort_by">
+      <label for="sort-by">Sort by: </label>
+        <div class="row">
+          <select name="sort-by" id="sort-by" class="select-css">
+            <option value="margin">Biggest Margin</option>
+            <option value="oldest">Oldest</option>
+            <option value="newest">Most Recent</option>
+          </select>
+        </div>
+      </li>
+
+      <div class="row ">
+        <input type="submit" value="Search" class="button">
+        <input type="reset" value="Reset Criteria" class="button"/>
+      </div>
+
+      <p>*By default all teams, years and venues are selected.</p>
+
+
+    </form>
+  </div>
+</article>
+
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>your page title goes here</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" media="screen, handheld" />
+    <script type="text/javascript" src="/js/script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+  <header>
+    <nav>
+      <a href="/" class="button">Home</a>
+
+      <a href="#" onclick="goBack()" class="button">Search Again</a>
+    </nav>
+  </header>
+
+    <main>
+    <% if session[:error] %>
+      <div class="flash error">
+        <p><%= session.delete(:error) %></p>
+      </div>
+    <% end %>
+
+    <% if session[:success] %>
+      <div class="flash success">
+        <p><%= session.delete(:success) %></p>
+      </div>
+    <% end %>
+
+      <%= yield %>
+
+        <article class="results-page">
+
+
+          <section class="results">
+            <% @results.each do |fixture| %>
+              <div class=results-row>
+                  <p class="result-header">  <%=fixture.round%>: <%=fixture.day_and_date%>
+                  <div class="results-score">
+                    <img src="<%=fixture.home_team_logo%>" alt="<%=fixture.home_team%> logo">
+                    <p><%=fixture.home_full_score%></p>
+                    <img src="<%=fixture.away_team_logo%>" alt="<%=fixture.away_team%> logo">
+                    <p><%=fixture.away_full_score%></p>
+                  </div>
+
+                  <p><%=fixture.display_result%></p>
+                  <p><img src="/images/location-small.png" alt="location-pin"> <%=fixture.venue%></p>
+              </div>
+
+            <% end %>
+          </section>
+        </article>
+    </main>
+  </body>
+</html>
+

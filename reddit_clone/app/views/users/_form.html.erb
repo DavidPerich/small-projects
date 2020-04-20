@@ -1,0 +1,15 @@
+<div class="well">
+  <%= render "shared/errors", obj: @user%>
+
+  <%= form_for @user do |f| %>
+    <div class="control-group">
+      <%= f.label :name, "Username" %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="control-group">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <%= f.submit (logged_in? ? "Update" : "Register"), class: "btn btn-success" %>
+  <% end %>
+</div>

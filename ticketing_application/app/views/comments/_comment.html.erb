@@ -1,0 +1,7 @@
+ <p><%=comment.body%></p>
+<em>Posted by <%= comment.creator.name %> <%= days_since(comment.created_at) %> ago </em>
+<% if current_user == comment.creator %>
+  <%= link_to "Edit", edit_ticket_comment_path(@ticket, comment)%>
+
+  <%= link_to "Delete", [comment.ticket, comment], method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>

@@ -1,0 +1,38 @@
+body {
+  padding: 1em;
+  font-family: sans-serif;
+}
+
+.message {
+  padding: 10px;
+  background: #FFFF99;
+}
+
+button.delete {
+  background-color: #F08080;
+}
+
+button {
+  padding: 10px;
+  border-radius: 15px;
+}
+
+li {
+  padding: 5px; 
+}
+
+.index {
+  width: 50%;
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+.inline {
+  display: inline;
+  padding: 100px, 100px;
+}
+
+.user-status {
+  font-style: italic;
+  font-size: 0.9em;
+}

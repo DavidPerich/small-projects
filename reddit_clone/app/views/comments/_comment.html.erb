@@ -1,0 +1,29 @@
+  <% show_post ||= false  %>
+<div class="row">
+  <div class="vote-box well text-center">
+    <% if logged_in? &&  %>
+      <%=link_to post_comment_vote_path(comment.post, comment, vote: true), method: "post" do%>
+      <i class="glyphicon glyphicon-arrow-up"></i><br>
+    <% end %>
+  <% end %>
+
+    <%= comment.total_votes %> votes
+    <br>
+    <% if logged_in? &&  %>
+      <%=link_to post_comment_vote_path(comment.post, comment, vote: false), method: "post" do%>
+      <i class="glyphicon glyphicon-arrow-down"></i>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="well big-box">
+    <em>"<%= comment.body%>"</em>
+    <% if show_post %>
+    on <%=link_to comment.post.title, post_path(comment.post)%>
+    <% end %>
+    <p>
+      <span class="quiet">By:</span> <%= link_to comment.user.name, user_path(comment.user)%>
+      <small>at <%=display_time(comment.created_at)%></small>
+    </p>
+  </div>
+</div>

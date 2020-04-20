@@ -1,0 +1,7 @@
+A full-featured CMS built on Ruby and Sinatra, part of Launch School's Networking Applications course
+
+Features
+- User accounts and sessions
+- Add/edit/delete/copy documents
+- Currently supports .txt, .md, and image files
+

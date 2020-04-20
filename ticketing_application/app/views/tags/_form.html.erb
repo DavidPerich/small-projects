@@ -1,0 +1,12 @@
+<%= render "shared/errors", obj: @tag%>
+
+<%= form_with(model: @tag, local: true) do |f| %>
+  <div class="input-group">
+    <%= f.label :name%>
+    <%= f.text_field :name%>
+  </div>
+  <div class="input-group">
+    <%= f.submit class: "btn btn-success"%>
+    <%= link_to "Back", :back, class: "btn" %>
+  </div>
+<% end %>

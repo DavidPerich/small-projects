@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+ruby "2.6.1"
+
+gem 'erubis'
+gem 'pg'
+gem 'sinatra', '~>1.4.7'
+gem 'sinatra-contrib'
+gem "puma"
+gem "rack", ">= 1.6.11"
+gem "rack-protection", ">= 1.5.5"
